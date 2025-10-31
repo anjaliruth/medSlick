@@ -1,6 +1,6 @@
 import Navigation from "./Navigation";
 import { Check } from "lucide-react";
-import { Button } from "./ui/buttons";
+import { Button } from "./ui/button";
 export default function PricingPage() {
   const plans = [
     {

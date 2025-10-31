@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { Button } from "./ui/buttons";
+import { Button } from "./ui/button";
 import { Brain } from "lucide-react";
 export default function Navigation() {
   const location = useLocation();
