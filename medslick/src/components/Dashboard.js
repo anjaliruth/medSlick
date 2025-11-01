@@ -20,7 +20,8 @@ import {
 import { AnalyticsTab } from './AnalyticsTab';
 // import { SettingsTab } from './SettingsTab';
 
-export default function Dashboard() {
+export function Dashboard() {
+    console.log({ Link, Tabs, TabsList, TabsTrigger, TabsContent, Card, Badge, AnalyticsTab });
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Header */}
@@ -48,19 +49,19 @@ export default function Dashboard() {
       <div className="flex-1 container mx-auto px-4 py-6">
         <Tabs defaultValue="interview" className="h-full">
           <TabsList className=" bg-gray-200 grid w-full grid-cols-4 mb-6">
-            <TabsTrigger value="interview" className="gap-2 active:bg-white">
+            <TabsTrigger value="interview" className="gap-2  data-[state=active]:bg-white">
               <MessageSquare className="h-4 w-4" />
               Practice Interview
             </TabsTrigger>
-            {/* <TabsTrigger value="history" className="gap-2">
+            {/* <TabsTrigger value="history" className="gap-2 data-[state=active]:bg-white">
               <History className="h-4 w-4" />
               History
             </TabsTrigger> */}
-            <TabsTrigger value="analytics" className="gap-2">
+            <TabsTrigger value="analytics" className="gap-2 data-[state=active]:bg-white">
               <BarChart3 className="h-4 w-4" />
               Analytics
             </TabsTrigger>
-            <TabsTrigger value="settings" className="gap-2">
+            <TabsTrigger value="settings" className="gap-2 data-[state=active]:bg-white">
               <Settings className="h-4 w-4" />
               Settings
             </TabsTrigger>

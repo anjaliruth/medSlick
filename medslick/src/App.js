@@ -5,7 +5,7 @@ import Homepage from "./components/Homepage";
 import PricingPage from "./components/PricingPage";
 import Login from "./components/Login";
 import { useState } from "react";
-import Dashboard from "./components/Dashboard";
+import {Dashboard} from "./components/Dashboard";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   return (
