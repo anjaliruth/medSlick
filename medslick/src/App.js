@@ -11,10 +11,8 @@ function App() {
 
   function handleAuthentication() {
     setIsAuthenticated((prev) => !prev);
-    console.log('auth')
   }
 
-  console.log(isAuthenticated, 'isAuthenticated app')
   return (
     <div className="App">
       <Router>
@@ -37,6 +35,7 @@ function App() {
               element={
                 <Dashboard
                   isAuthenticated={isAuthenticated}
+                  setIsAuthenticated={setIsAuthenticated}
                   handleAuthentication={handleAuthentication}
                 />
               }

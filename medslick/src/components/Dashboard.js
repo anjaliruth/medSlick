@@ -38,10 +38,11 @@ import {
 import Navigation from "./Navigation";
 // import { SettingsTab } from './SettingsTab';
 
-export function Dashboard() {
+export function Dashboard({isAuthenticated, setIsAuthenticated}) {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Navigation />
+      <Navigation isAuthenticated={isAuthenticated}
+        setIsAuthenticated={setIsAuthenticated}/>
 
       {/* Main Content */}
       <div className="flex-1 container mx-auto px-4 py-6">

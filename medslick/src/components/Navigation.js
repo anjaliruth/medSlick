@@ -113,7 +113,7 @@ export default function Navigation({
                 </Button>
                 <Button
                   className="bg-black text-white"
-                  // onClick={handleLogout}
+                  onClick={()=>setIsAuthenticated(false)}
                 >
                   Log Out
                 </Button>
