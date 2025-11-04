@@ -47,7 +47,7 @@ export function Dashboard({isAuthenticated, setIsAuthenticated}) {
       {/* Main Content */}
       <div className="flex-1 container mx-auto px-4 py-6">
         <Tabs defaultValue="interview" className="h-full">
-          <TabsList className=" bg-gray-200 grid w-full grid-cols-4 mb-6">
+          <TabsList className=" bg-gray-200 grid w-full grid-cols-2 mb-6">
             <TabsTrigger
               value="interview"
               className="gap-2  data-[state=active]:bg-white"
@@ -66,13 +66,13 @@ export function Dashboard({isAuthenticated, setIsAuthenticated}) {
               <BarChart3 className="h-4 w-4" />
               Analytics
             </TabsTrigger>
-            <TabsTrigger
+            {/* <TabsTrigger
               value="settings"
               className="gap-2 data-[state=active]:bg-white"
             >
               <Settings className="h-4 w-4" />
               Settings
-            </TabsTrigger>
+            </TabsTrigger> */}
           </TabsList>
           {/* 
           <TabsContent value="interview" className="mt-0">
