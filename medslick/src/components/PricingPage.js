@@ -78,7 +78,6 @@ export default function PricingPage() {
                     <span className="text-gray-600 ml-2">/{plan.period}</span>
                   </div>
 
-                  {/* <button classname={`px-4 py-2 bg-pink-600 text-white rounded hover:bg-black-700 transition`}> Get Started</button> */}
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
@@ -87,6 +86,7 @@ export default function PricingPage() {
                       </li>
                     ))}
                   </ul>
+                  <Button className='outline-black w-full my-2 py-2 rounded-m hover:bg-black hover:text-white transition'> Get Started</Button>
                 </div>
               </div>
             ))}
