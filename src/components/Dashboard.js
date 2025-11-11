@@ -24,9 +24,9 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-// import { InterviewTab } from './InterviewTab';
 // import { HistoryTab } from './HistoryTab';
 import { AnalyticsTab } from "./AnalyticsTab";
+import { InterviewTab } from "./InterviewTab";
 import {
   Dialog,
   DialogContent,
@@ -38,11 +38,40 @@ import {
 import Navigation from "./Navigation";
 // import { SettingsTab } from './SettingsTab';
 
-export function Dashboard({isAuthenticated, setIsAuthenticated}) {
+export function Dashboard({ isAuthenticated, setIsAuthenticated }) {
+  const [selectedTopic, setSelectedTopic] = useState({
+    id: "1",
+    name: "Testicular Lump",
+    category: "Outpatient Stations",
+    completed: true,
+    grade: "Pass",
+    coverage: [
+      "Focused scrotal history (onset, pain, systemic symptoms)",
+      "Relevant past medical/surgical history and fertility questions",
+      "Inspection and palpation technique (sitting and supine)",
+      "Differentiation: epididymal, testicular, hydrocele, hernia",
+      "When to request ultrasound and tumor markers",
+      "Initial outpatient management and safety-netting advice",
+      "Clear explanation of red-flags and urgency pathway",
+    ],
+    strengths: [
+      "Structured history — covered pain, systemic symptoms and risk factors",
+      "Good exam technique with clear communication to patient",
+      "Accurate differential between epididymal and intratesticular causes",
+      "Appropriate escalation plan for suspicious lumps",
+    ],
+    improvements: [
+      "Mention testicular tumor markers and timeline for investigations",
+      "Be more explicit about counseling re: fertility and fertility-preserving options",
+      "State follow-up timing and who to contact for worsening symptoms",
+    ],
+  });
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Navigation isAuthenticated={isAuthenticated}
-        setIsAuthenticated={setIsAuthenticated}/>
+      <Navigation
+        isAuthenticated={isAuthenticated}
+        setIsAuthenticated={setIsAuthenticated}
+      />
 
       {/* Main Content */}
       <div className="flex-1 container mx-auto px-4 py-6">
@@ -83,8 +112,17 @@ export function Dashboard({isAuthenticated, setIsAuthenticated}) {
             <HistoryTab />
           </TabsContent> */}
 
+          <TabsContent value="interview" className="mt-0">
+            <InterviewTab
+              selectedTopic={selectedTopic}
+              setSelectedTopic={setSelectedTopic}
+            />
+          </TabsContent>
           <TabsContent value="analytics" className="mt-0">
-            <AnalyticsTab />
+            <AnalyticsTab
+              selectedTopic={selectedTopic}
+              setSelectedTopic={setSelectedTopic}
+            />
           </TabsContent>
 
           {/* <TabsContent value="settings" className="mt-0">

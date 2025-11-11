@@ -2,36 +2,9 @@ import { Card } from "./ui/card";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+import { Syllabus } from "./Syllabus";
 import { CheckCircle, Circle, TrendingDown, TrendingUp } from "lucide-react";
-export function AnalyticsTab() {
-  const [selectedTopic, setSelectedTopic] = useState({
-    id: "1",
-    name: "Testicular Lump",
-    category: "Outpatient Stations",
-    completed: true,
-    grade: "Pass",
-    coverage: [
-      "Focused scrotal history (onset, pain, systemic symptoms)",
-      "Relevant past medical/surgical history and fertility questions",
-      "Inspection and palpation technique (sitting and supine)",
-      "Differentiation: epididymal, testicular, hydrocele, hernia",
-      "When to request ultrasound and tumor markers",
-      "Initial outpatient management and safety-netting advice",
-      "Clear explanation of red-flags and urgency pathway",
-    ],
-    strengths: [
-      "Structured history — covered pain, systemic symptoms and risk factors",
-      "Good exam technique with clear communication to patient",
-      "Accurate differential between epididymal and intratesticular causes",
-      "Appropriate escalation plan for suspicious lumps",
-    ],
-    improvements: [
-      "Mention testicular tumor markers and timeline for investigations",
-      "Be more explicit about counseling re: fertility and fertility-preserving options",
-      "State follow-up timing and who to contact for worsening symptoms",
-    ],
-  });
-
+export function AnalyticsTab({ selectedTopic, setSelectedTopic }) {
   const dataSet = [
     {
       id: "1",
@@ -203,53 +176,10 @@ export function AnalyticsTab() {
       ],
     },
   ];
-  console.log(selectedTopic, "selectedTopic");
-  const categories = Array.from(new Set(dataSet.map((data) => data.category)));
+
   return (
     <div className="flex gap-6 h-[calc(100vh-280px)]">
-      <div className="w-80 flex-shrink-0">
-        <Card className="p-4 h-full overflow-auto">
-          <h1>Urology Interview</h1>
-          <div className="space-y-6">
-            {categories.map((category) => (
-              <div>
-                <h2 className="text-sm font-semibold">{category}</h2>
-                <div className="mt-2 flex flex-col gap-1">
-                  {dataSet
-                    .filter((data) => data.category === category)
-                    .map((dataInd) => (
-                      <Button
-                        onClick={() => setSelectedTopic(dataInd)}
-                        className={`w-full justify-start gap-2 ${
-                          selectedTopic.name === dataInd.name
-                            ? "bg-black text-white"
-                            : dataInd.completed
-                            ? "bg-green-100 hover:bg-green-100"
-                            : "bg-gray-100 hover:bg-gray-200"
-                        }`}
-                      >
-                        {dataInd.completed ? (
-                          <CheckCircle className="h-4 w-4 text-green-600" />
-                        ) : (
-                          <Circle className="h-4 w-4 text-gray-600" />
-                        )}
-                        {dataInd.name}
-                      </Button>
-                    ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* {dataSet.map((data) => (
-          <div>
-            <h2>{data.station}</h2>
-            {data.substations.map((substation) => (
-              <Button variant="ghost">{substation}ttt</Button>
-            ))}
-          </div>
-        ))} */}
-        </Card>
-      </div>
+      <Syllabus selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic}/>
 
       <div className="flex-1 overflow-auto">
         <Card className="p-8">
@@ -333,7 +263,9 @@ export function AnalyticsTab() {
                 You haven't practiced this topic. Start an interview to see your
                 performance breakdown.
               </p>
-              <Button className="bg-black text-white">Start Practice Interview</Button>
+              <Button className="bg-black text-white">
+                Start Practice Interview
+              </Button>
             </div>
           )}
         </Card>
